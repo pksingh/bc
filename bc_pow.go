@@ -1,6 +1,9 @@
 package main
 
 import (
+	"crypto/sha1"
+	"fmt"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -34,4 +37,13 @@ func CreateBlockchain(difficulty int) Blockchain {
 		difficulty,            // Set the difficuly level
 	}
 }
+
+// Calculate Hash for currenct Block
+func (b Block) calculateHash() string {
+	data := fmt.Sprintf("%v", b.data)
+	blockData := b.previousHash + string(data) + b.timestamp.String() + strconv.Itoa(b.pow)
+	blockHash := sha1.Sum([]byte(blockData))
+	return fmt.Sprintf("%x", blockHash)
+}
+
 }
