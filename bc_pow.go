@@ -20,4 +20,18 @@ type Blockchain struct {
 	chain        []Block // List of all Blocks
 	difficulty   int     // Difficulty level for PoW/nonce
 }
+
+// Lets Create Blockchain
+func CreateBlockchain(difficulty int) Blockchain {
+	// Lets initialize 0-block or Genesis Block
+	genesisBlock := Block{
+		hash:      "0", //No data hence the Hash -"0"
+		timestamp: time.Now(),
+	}
+	return Blockchain{
+		genesisBlock,
+		[]Block{genesisBlock}, //Lets the chain have the Gen Block
+		difficulty,            // Set the difficuly level
+	}
+}
 }
