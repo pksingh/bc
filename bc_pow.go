@@ -46,4 +46,12 @@ func (b Block) calculateHash() string {
 	return fmt.Sprintf("%x", blockHash)
 }
 
+// Lets mine : generate Hash to match the difficulty
+func (b *Block) mine(difficulty int) {
+	for !strings.HasPrefix(b.hash, strings.Repeat("0", difficulty)) {
+		b.pow++
+		b.hash = b.calculateHash()
+	}
+	fmt.Printf("\tPoW: %d\tHash: %s, Data:%v\n", b.pow, b.hash, b.data)
+}
 }
