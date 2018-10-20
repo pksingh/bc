@@ -72,4 +72,9 @@ func (b *Blockchain) addBlock(from, to string, amount float64) {
 	b.chain = append(b.chain, newBlock)
 }
 
+func main() {
+	// create a new blockchain instance with a mining difficulty of 4
+	difficulty := 4
+	fmt.Println("Init Blockchain with Difficulty ", difficulty)
+	blockchain := CreateBlockchain(difficulty)
 }
