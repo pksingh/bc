@@ -10,11 +10,11 @@ import (
 
 // Block will a simple leader record
 type Block struct {
-	data         map[string]interface{} // Will hold the Raw Data
-	hash         string                 //Will have the Hast of current Block
-	previousHash string                 //Parent Block Hash
-	timestamp    time.Time              //Block created timestamp
-	pow          int                    //PoW or nonce to match the Hash Difficulty or Pattern
+	data         map[string]interface{} // Will hold the Data Map
+	hash         string                 // Will have the Hast of current Block
+	previousHash string                 // Parent Block Hash
+	timestamp    time.Time              // Block created timestamp
+	pow          int                    // PoW or nonce to match the Hash Difficulty or Pattern
 }
 
 // Blockchain is linked of callection of all ledgers/Blocks
@@ -54,4 +54,22 @@ func (b *Block) mine(difficulty int) {
 	}
 	fmt.Printf("\tPoW: %d\tHash: %s, Data:%v\n", b.pow, b.hash, b.data)
 }
+
+// add the new block to the Blockchain
+func (b *Blockchain) addBlock(from, to string, amount float64) {
+	blockData := map[string]interface{}{
+		"from":   from,
+		"to":     to,
+		"amount": amount,
+	}
+	lastBlock := b.chain[len(b.chain)-1]
+	newBlock := Block{
+		data:         blockData,
+		previousHash: lastBlock.hash,
+		timestamp:    time.Now(),
+	}
+	newBlock.mine(b.difficulty)
+	b.chain = append(b.chain, newBlock)
+}
+
 }
