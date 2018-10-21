@@ -72,6 +72,17 @@ func (b *Blockchain) addBlock(from, to string, amount float64) {
 	b.chain = append(b.chain, newBlock)
 }
 
+// validate the existing Blockchain
+func (b Blockchain) isValid() bool {
+	for i := range b.chain[1:] {
+		previousBlock := b.chain[i]
+		currentBlock := b.chain[i+1]
+		if currentBlock.hash != currentBlock.calculateHash() || currentBlock.previousHash != previousBlock.hash {
+			return false
+		}
+	}
+	return true
+}
 func main() {
 	// create a new blockchain instance with a mining difficulty of 4
 	difficulty := 4
