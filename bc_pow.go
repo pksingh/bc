@@ -77,4 +77,8 @@ func main() {
 	difficulty := 4
 	fmt.Println("Init Blockchain with Difficulty ", difficulty)
 	blockchain := CreateBlockchain(difficulty)
+
+	// record transactions on the blockchain for Alice, Bob, and John
+	fmt.Println("\nAdding Block: ", "Ravin -- 5 --> Binod")
+	blockchain.addBlock("Ravin", "Binod", 5)
 }
