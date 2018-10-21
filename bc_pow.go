@@ -92,4 +92,12 @@ func main() {
 	// record transactions on the blockchain for Alice, Bob, and John
 	fmt.Println("\nAdding Block: ", "Ravin -- 5 --> Binod")
 	blockchain.addBlock("Ravin", "Binod", 5)
+	fmt.Println("\nAdding Block: ", "Binod -- 3 --> Suresh")
+	blockchain.addBlock("Binod", "Suresh", 3)
+	fmt.Println("\nAdding Block: ", "Suresh -- 1 --> Ravin")
+	blockchain.addBlock("Suresh", "Ravin", 1)
+
+	// check if the blockchain is valid; expecting true
+	fmt.Println("\nValidate Blockchain: ", blockchain.isValid())
+
 }
