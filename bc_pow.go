@@ -88,6 +88,14 @@ func (b Blockchain) isValid() bool {
 	}
 	return true
 }
+
+// Lets show the enttire Blockchain
+func (b Blockchain) Print() {
+	for i, bi := range b.chain[:] {
+		fmt.Printf("%d\tTS:%d \tHash:%s \tpHash:%s \tPoW:%d \tData:%v\n", i, bi.timestamp.UnixNano(), bi.hash, bi.previousHash, bi.pow, bi.data)
+	}
+}
+
 func main() {
 	// create a new blockchain instance with a mining difficulty of 4
 	difficulty := 4
