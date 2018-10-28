@@ -113,4 +113,8 @@ func main() {
 	// check if the blockchain is valid; expecting true
 	fmt.Println("\nValidate Blockchain: ", blockchain.isValid())
 
+	// print the block chain
+	fmt.Println("\nShow Blockchain: ")
+	blockchain.Print()
+
 }
