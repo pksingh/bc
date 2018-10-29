@@ -28,6 +28,14 @@ This is going to have different Blockchain concepts.
 
     Validate Blockchain:  true
 
+    Show Blockchain:
+    0       TS:1546505999923189700  Hash:0  pHash:  PoW:0   Data:map[]
+    1       TS:1546505999923784300  Hash:000011b524fb87c259f629ab59eabf00ac43f1cb   pHash:0         PoW:10170       Data:map[amount:5 from:Ravin to:Binod]
+    2       TS:1546506000937132900  Hash:00006d21e563c8f58137401c0491dc7010591807   pHash:000011b524fb87c259f629ab59eabf00ac43f1cb  PoW:10404       Data:map[amount:3 from:Binod to:Suresh]
+    3       TS:1546506002015701300  Hash:0000247637cfaf9eda97949153ef43fbd6f3a2ff   pHash:00006d21e563c8f58137401c0491dc7010591807  PoW:22836       Data:map[amount:1 from:Suresh to:Ravin]
+
+    C:\Users\Home\Desktop\bc>
+    ```
     ```
 
 # License
