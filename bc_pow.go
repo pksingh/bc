@@ -56,8 +56,9 @@ func (b *Block) mine(difficulty int) {
 	for !strings.HasPrefix(b.hash, strings.Repeat("0", difficulty)) {
 		b.pow++
 		b.hash = b.calculateHash()
+		fmt.Printf("\rMining ... %s", b.hash)
 	}
-	fmt.Printf("\tPoW: %d\tHash: %s, Data:%v\n", b.pow, b.hash, b.data)
+	fmt.Printf("\tPoW: %d\tHash: %s Data:%v\n", b.pow, b.hash, b.data)
 }
 
 // add the new block to the Blockchain
