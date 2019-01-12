@@ -1,5 +1,13 @@
 package main
 
+// BlockChain network or simply lets say Blockchain
+type PoSNetwork struct {
+	BlockHead  *Block   // Head of all Block
+	Blockchain []*Block // List of all Blocks
+	Validators []*Node  // All validators, Part of
+	// difficulty   int  // Difficulty level for PoW/nonce
+}
+
 // Node Structure
 type Node struct {
 	Id      int    // Id of Validator Node
