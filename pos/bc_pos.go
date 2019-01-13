@@ -1,5 +1,8 @@
 package main
 
+import (
+	"crypto/md5"
+	"encoding/hex"
 // BlockChain network or simply lets say Blockchain
 type PoSNetwork struct {
 	BlockHead  *Block   // Head of all Block
@@ -26,3 +29,11 @@ type Block struct {
 	// PoW        int    // PoW or nonce to match the Hash Difficulty or Pattern
 }
 
+// NewHash() to generate Hash for a string
+func newHash(s string) string {
+	h := md5.New()
+	//	h := sha256.New()
+	h.Write([]byte(s))
+	hashed := h.Sum(nil)
+	return hex.EncodeToString(hashed)
+}
