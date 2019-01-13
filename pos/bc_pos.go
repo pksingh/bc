@@ -3,6 +3,8 @@ package main
 import (
 	"crypto/md5"
 	"encoding/hex"
+)
+
 // BlockChain network or simply lets say Blockchain
 type PoSNetwork struct {
 	BlockHead  *Block   // Head of all Block
