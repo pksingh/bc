@@ -31,6 +31,14 @@ type Block struct {
 	// PoW        int    // PoW or nonce to match the Hash Difficulty or Pattern
 }
 
+// NewBlockHash : Generate Hash for a NewBlock leager
+func NewBlockHash(block *Block) string {
+	//data, _ := json.Marshal(block)
+	//blockInfo := block.Timestamp + block.PrevHash + block.Hash + block.ValidatorAddr
+	blockInfo := strconv.FormatInt(block.Timestamp, 10) + block.PrevHash + block.Hash + block.ValidatorAddr + block.Data
+	return newHash(blockInfo)
+}
+
 // NewHash() to generate Hash for a string
 func newHash(s string) string {
 	h := md5.New()
