@@ -48,3 +48,11 @@ func newHash(s string) string {
 	hashed := h.Sum(nil)
 	return hex.EncodeToString(hashed)
 }
+
+// randAddress : will generate Adress for Validators
+func randAddress() string {
+	b := make([]byte, 8) // Lets keep 8Byte Address - user configurable
+	_, _ = math.Read(b)
+	return fmt.Sprintf("%X", b)
+}
+
