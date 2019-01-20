@@ -3,6 +3,8 @@ package main
 import (
 	"crypto/md5"
 	"encoding/hex"
+	"fmt"
+	math "math/rand"
 	"strconv"
 )
 
@@ -49,7 +51,7 @@ func newHash(s string) string {
 	return hex.EncodeToString(hashed)
 }
 
-// randAddress : will generate Adress for Validators
+// randAddress : will generate Address for Validators
 func randAddress() string {
 	b := make([]byte, 8) // Lets keep 8Byte Address - user configurable
 	_, _ = math.Read(b)
