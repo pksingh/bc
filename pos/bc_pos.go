@@ -51,6 +51,17 @@ func newHash(s string) string {
 	return hex.EncodeToString(hashed)
 }
 
+// NewNode() : Add new Validator with initial stake to the BC Network
+func (n PoSNetwork) NewNode(id, stake int) []*Node {
+	newNode := &Node{
+		Id:      id,
+		Stake:   stake,
+		Address: "Some Address - HEXCodes",
+	}
+	n.Validators = append(n.Validators, newNode)
+	return n.Validators
+}
+
 // randAddress : will generate Address for Validators
 func randAddress() string {
 	b := make([]byte, 8) // Lets keep 8Byte Address - user configurable
