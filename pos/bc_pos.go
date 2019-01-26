@@ -56,7 +56,7 @@ func (n PoSNetwork) NewNode(id, stake int) []*Node {
 	newNode := &Node{
 		Id:      id,
 		Stake:   stake,
-		Address: "Some Address - HEXCodes",
+		Address: randAddress(),
 	}
 	n.Validators = append(n.Validators, newNode)
 	return n.Validators
