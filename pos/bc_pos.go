@@ -69,3 +69,14 @@ func randAddress() string {
 	return fmt.Sprintf("%X", b)
 }
 
+func main() {
+	pos := &PoSNetwork{
+		Blockchain: []*Block{
+			{
+			},
+		},
+	}
+	pos.BlockHead = pos.Blockchain[0]
+	fmt.Print("Init PoSNetwork DONE")
+
+}
