@@ -70,6 +70,11 @@ func randAddress() string {
 }
 
 func main() {
+	// set random seed
+	math.Seed(time.Now().UnixNano())
+
+	// generate an initial PoS network including a blockchain with a genesis block.
+	genesisTime := time.Now().UnixMicro()
 	pos := &PoSNetwork{
 		Blockchain: []*Block{
 			{
