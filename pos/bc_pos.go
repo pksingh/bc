@@ -79,6 +79,12 @@ func main() {
 	pos := &PoSNetwork{
 		Blockchain: []*Block{
 			{
+				Data:          "",
+				Timestamp:     genesisTime,
+				PrevHash:      "",
+				Hash:          newHash(strconv.FormatInt(genesisTime, 10)),
+				ValidatorAddr: "",
+				ValidatorId:   0,
 			},
 		},
 	}
