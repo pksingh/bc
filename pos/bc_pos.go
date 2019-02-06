@@ -91,4 +91,6 @@ func main() {
 	pos.BlockHead = pos.Blockchain[0]
 	fmt.Print("Init PoSNetwork DONE")
 
+	// instantiate nodes to act as validators in our network
+	pos.Validators = pos.NewNode(1, 20)
 }
