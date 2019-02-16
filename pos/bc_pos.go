@@ -96,6 +96,10 @@ func main() {
 	pos.Validators = pos.NewNode(2, 30)
 	pos.Validators = pos.NewNode(3, 50)
 	fmt.Println("InitValidators => ")
+	for _, v := range pos.Validators {
+		fmt.Println("\tId: ", v.Id, " Address:", v.Address, " Stake:", v.Stake)
+		// fmt.Print("\tvId:", v.Id, " Stake:", v.Stake)
+	}
 
 	fmt.Println()
 }
