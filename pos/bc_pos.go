@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/md5"
 	"encoding/hex"
+	"errors"
 	"fmt"
 	math "math/rand"
 	"strconv"
@@ -68,6 +69,22 @@ func randAddress() string {
 	b := make([]byte, 8) // Lets keep 8Byte Address - user configurable
 	_, _ = math.Read(b)
 	return fmt.Sprintf("%X", b)
+}
+
+// SelectWinner() : One from the Validators will be selected
+func (n PoSNetwork) SelectWinner() (*Node, error) {
+	var winnerPool []*Node
+	totalStake := 0
+	for _, node := range n.Validators {
+		if node.Stake > 0 {
+			winnerPool = append(winnerPool, node)
+			totalStake += node.Stake
+		}
+	}
+	if winnerPool == nil {
+		return nil, errors.New("there are no nodes with stake in the network")
+	}
+	return nil, errors.New("a winner should have been picked but wasn't")
 }
 
 func main() {
