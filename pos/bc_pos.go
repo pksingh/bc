@@ -84,6 +84,16 @@ func (n PoSNetwork) SelectWinner() (*Node, error) {
 	if winnerPool == nil {
 		return nil, errors.New("there are no nodes with stake in the network")
 	}
+	winnerNumber := math.Intn(totalStake)
+	tmp := 0
+	for _, node := range n.Validators {
+		tmp += node.Stake
+		if winnerNumber < tmp {
+			//fmt.Println("\tWinner => Id: ", node.Id, " Address:", node.Address, "-Stake:", node.Stake)
+			fmt.Print("\tWinner => Id:", node.Id, " Stake:", node.Stake)
+			return node, nil
+		}
+	}
 	return nil, errors.New("a winner should have been picked but wasn't")
 }
 
