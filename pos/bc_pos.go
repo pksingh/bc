@@ -53,6 +53,16 @@ func newHash(s string) string {
 	return hex.EncodeToString(hashed)
 }
 
+// PrintBlockDetails() : Display Detail Block Stratucre
+func (b Block) PrintBlockDetails() {
+	fmt.Println("\tTimeStamp:", b.Timestamp)
+	fmt.Println("\tPreHash:", b.PrevHash)
+	fmt.Println("\tHash:", b.Hash)
+	fmt.Println("\tvAddress:", b.ValidatorAddr)
+	fmt.Println("\tvId:", b.ValidatorId)
+	fmt.Println("\tData:", b.Data)
+}
+
 // NewNode() : Add new Validator with initial stake to the BC Network
 func (n PoSNetwork) NewNode(id, stake int) []*Node {
 	newNode := &Node{
