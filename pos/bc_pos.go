@@ -63,6 +63,12 @@ func (b Block) PrintBlockDetails() {
 	fmt.Println("\tData:", b.Data)
 }
 
+// PrintBlockInfo() : Display Block Stratucre in Single line
+func (b Block) PrintBlockInfo() {
+	// fmt.Println("\tTS:", b.Timestamp, " Hash:", b.Hash, " vId:", b.ValidatorId)
+	fmt.Println("\tTS:", b.Timestamp, " Hash:", b.Hash, " vId:", b.ValidatorId, " vAddr:", b.ValidatorAddr, "Data:", b.Data)
+}
+
 // NewNode() : Add new Validator with initial stake to the BC Network
 func (n PoSNetwork) NewNode(id, stake int) []*Node {
 	newNode := &Node{
