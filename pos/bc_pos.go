@@ -53,6 +53,18 @@ func newHash(s string) string {
 	return hex.EncodeToString(hashed)
 }
 
+// PrintBlockchainInfo() : Will show whole Blockchain
+func (n PoSNetwork) PrintBlockchainInfo() {
+	for i, block := range n.Blockchain {
+		if i == 0 {
+			fmt.Printf("Block GEN> ")
+		} else {
+			fmt.Printf("Block %d > ", i)
+		}
+		block.PrintBlockInfo()
+	}
+}
+
 // PrintBlockDetails() : Display Detail Block Stratucre
 func (b Block) PrintBlockDetails() {
 	fmt.Println("\tTimeStamp:", b.Timestamp)
