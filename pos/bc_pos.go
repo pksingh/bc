@@ -99,6 +99,24 @@ func randAddress() string {
 	return fmt.Sprintf("%X", b)
 }
 
+
+// GenerateNewBlock() : will generate block by the validator node
+func (n PoSNetwork) GenerateNewBlock(Validator *Node, data string) ([]*Block, *Block, error) {
+	currentTime := time.Now().UnixMicro() //.String()
+
+	newBlock := &Block{
+		Data:          data,
+		Timestamp:     currentTime,
+		PrevHash:      n.BlockHead.Hash,
+		Hash:          NewBlockHash(n.BlockHead),
+		ValidatorAddr: Validator.Address,
+		ValidatorId:   Validator.Id,
+	}
+
+		n.Blockchain = append(n.Blockchain, newBlock)
+	return n.Blockchain, newBlock, nil
+}
+
 // SelectWinner() : One from the Validators will be selected
 func (n PoSNetwork) SelectWinner() (*Node, error) {
 	var winnerPool []*Node
