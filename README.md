@@ -1,7 +1,9 @@
 # Blockchain
-This is going to have different Blockchain concepts.
-- PoW [X] Proof of Work
 
+This is going to have different Blockchain concepts.
+
+- PoW [X] Proof of Work
+- PoW [ ] Proof of Stake
 
 ## PoW /*Proof of Work*/
 
@@ -11,8 +13,9 @@ This is going to have different Blockchain concepts.
 
 - **RUN**
     Lets RUN this `bc_pow.exe` or `bc_pow` based on the OS  
-    
+
     *Output*:
+
     ```
     C:\Users\Home\Desktop\bc>bc_pow.exe
     Init Blockchain with Difficulty  4
@@ -38,6 +41,7 @@ This is going to have different Blockchain concepts.
     ```
 
     *Animating Mining Output*:
+
     ```
     C:\Users\Home\Desktop\bc>bc_pow.exe
     Init Blockchain with Difficulty  4
@@ -62,6 +66,36 @@ This is going to have different Blockchain concepts.
     C:\Users\Home\Desktop\bc>
     ```
 
+    ---
+
+## PoS /*Proof of Stake*/
+
+- **BUILD**
+    Lets fire `go build -o bc_pos.exe ./pos/bc_pos.go` on the console  
+    This will generate binary/executable --> bc_pos or bc_pos.exe (in my case on Windows)
+
+- **RUN**
+    Lets RUN this `bc_pos.exe` or `bc_pos` based on the OS  
+
+    *Output*:
+    ```
+    Init PoSNetwork DONE
+    InitValidators => 
+            Id:  1  Address: A1F1A74287DC80EC  Stake: 20
+            Id:  2  Address: 0C4723927FD87FBD  Stake: 30
+            Id:  3  Address: F02D7A7871FC5BEF  Stake: 50
+
+
+    Lets Carry out few Transactions ...
+
+    Adding New Block=> Data: Ravin -- 5 --> Binod
+            Winner => Id:3 Stake:50
+
+    Lets Show/Print all Transactions in the Blockchain ...
+    Block GEN>      TS: 1551540535537184  Hash: 56f8b5780b5fe960420ffd2a155eece5  vId: 0  vAddr:  Data:
+
+    ```
+    
 # License
 
 MIT
