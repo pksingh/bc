@@ -5,6 +5,7 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
+	"log"
 	math "math/rand"
 	"strconv"
 	"time"
@@ -175,6 +176,14 @@ func main() {
 	}
 
 	fmt.Println()
+	fmt.Println("\nLets Carry out few Transactions ... ")
+	data := "Ravin -- 5 --> Binod"
+	fmt.Println("Adding New Block=> Data:", data)
+	winner, err := pos.SelectWinner()
+	if err != nil {
+		log.Fatal(err)
+	}
+	winner.Stake += 10
 
 	fmt.Println("\nLets Show/Print all Transactions in the Blockchain ...")
 	pos.PrintBlockchainInfo()
