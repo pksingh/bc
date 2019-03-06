@@ -184,6 +184,11 @@ func main() {
 		log.Fatal(err)
 	}
 	winner.Stake += 10
+	pos.Blockchain, pos.BlockHead, err = pos.GenerateNewBlock(winner, data)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println()
 
 	fmt.Println("\nLets Show/Print all Transactions in the Blockchain ...")
 	pos.PrintBlockchainInfo()
