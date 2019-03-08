@@ -189,6 +189,8 @@ func main() {
 		log.Fatal(err)
 	}
 	fmt.Println()
+	pos.BlockHead.PrintBlockInfo()
+	fmt.Println()
 
 	fmt.Println("\nLets Show/Print all Transactions in the Blockchain ...")
 	pos.PrintBlockchainInfo()
