@@ -80,22 +80,23 @@ This is going to have different Blockchain concepts.
     *Output*:
     ```
     Init PoSNetwork DONE
-    InitValidators => 
-            Id:  1  Address: A1F1A74287DC80EC  Stake: 20
-            Id:  2  Address: 0C4723927FD87FBD  Stake: 30
-            Id:  3  Address: F02D7A7871FC5BEF  Stake: 50
+    InitValidators =>
+            Id:  1  Address: DC961BADD322AD87  Stake: 20
+            Id:  2  Address: 984419B79083B705  Stake: 30
+            Id:  3  Address: DF29C24AC533C357  Stake: 50
 
 
     Lets Carry out few Transactions ...
-
     Adding New Block=> Data: Ravin -- 5 --> Binod
-            Winner => Id:3 Stake:50
+            Winner => Id:1 Stake:20
+            TS: 1552232595107374  Hash: d5012f7f30d58e4b8f5612856338c649  vId: 1  vAddr: DC961BADD322AD87 Data: Ravin -- 5 --> Binod
+
 
     Lets Show/Print all Transactions in the Blockchain ...
-    Block GEN>      TS: 1551540535537184  Hash: 56f8b5780b5fe960420ffd2a155eece5  vId: 0  vAddr:  Data:
-
+    Block GEN>      TS: 1552232595103746  Hash: 1097b936847c3c997486c7b8bf426bf0  vId: 0  vAddr:  Data:
+    Block 1 >       TS: 1552232595107374  Hash: d5012f7f30d58e4b8f5612856338c649  vId: 1  vAddr: DC961BADD322AD87 Data: Ravin -- 5 --> Binod
     ```
-    
+
 # License
 
 MIT
