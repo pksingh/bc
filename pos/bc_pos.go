@@ -118,6 +118,24 @@ func (n PoSNetwork) GenerateNewBlock(Validator *Node, data string) ([]*Block, *B
 	return n.Blockchain, newBlock, nil
 }
 
+// ValidateNewBlock() : Will validate the Newly added block
+func (n PoSNetwork) ValidateNewBlock(newBlock *Block) error {
+	if n.BlockHead.Hash != newBlock.PrevHash {
+		return errors.New("blockchain BlockHead(HEAD) hash is not equal to new block previous hash")
+	}
+
+	//if n.BlockHead.Timestamp >= newBlock.Timestamp {
+	//if n.BlockHead.Timestamp > newBlock.Timestamp {
+	// if n.BlockHead.Timestamp.Before(newBlock.Timestamp) {
+	// 	return errors.New("blockchain BlockHead(HEAD) timestamp is greater than or equal to new block timestamp")
+	// }
+
+	if NewBlockHash(n.BlockHead) != newBlock.Hash {
+		return errors.New("new block hash of BlockHead(HEAD) does not equal new block hash")
+	}
+	return nil
+}
+
 // SelectWinner() : One from the Validators will be selected
 func (n PoSNetwork) SelectWinner() (*Node, error) {
 	var winnerPool []*Node
