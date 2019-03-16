@@ -114,7 +114,12 @@ func (n PoSNetwork) GenerateNewBlock(Validator *Node, data string) ([]*Block, *B
 		ValidatorId:   Validator.Id,
 	}
 
+	if err := n.ValidateNewBlock(newBlock); err != nil {
+		Validator.Stake -= 10
+		return n.Blockchain, n.BlockHead, err
+	} else {
 		n.Blockchain = append(n.Blockchain, newBlock)
+	}
 	return n.Blockchain, newBlock, nil
 }
 
