@@ -103,6 +103,11 @@ func randAddress() string {
 
 // GenerateNewBlock() : will generate block by the validator node
 func (n PoSNetwork) GenerateNewBlock(Validator *Node, data string) ([]*Block, *Block, error) {
+	if err := n.ValidateBlockchain(); err != nil {
+		Validator.Stake -= 10
+		return n.Blockchain, n.BlockHead, err
+	}
+
 	currentTime := time.Now().UnixMicro() //.String()
 
 	newBlock := &Block{
