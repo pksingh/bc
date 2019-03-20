@@ -252,20 +252,9 @@ func main() {
 
 	fmt.Println()
 	fmt.Println("\nLets Carry out few Transactions ... ")
-	data := "Ravin -- 5 --> Binod"
-	fmt.Println("Adding New Block=> Data:", data)
-	winner, err := pos.SelectWinner()
-	if err != nil {
-		log.Fatal(err)
-	}
-	winner.Stake += 10
-	pos.Blockchain, pos.BlockHead, err = pos.GenerateNewBlock(winner, data)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println()
-	pos.BlockHead.PrintBlockInfo()
-	fmt.Println()
+	pos.AddBlock("Ravin -- 5 --> Binod")
+	pos.AddBlock("Binod -- 3 --> Suresh")
+	pos.AddBlock("Suresh -- 1 --> Ravin")
 
 	fmt.Println("\nLets Show/Print all Transactions in the Blockchain ...")
 	pos.PrintBlockchainInfo()
