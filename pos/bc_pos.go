@@ -203,6 +203,22 @@ func (n PoSNetwork) SelectWinner() (*Node, error) {
 	return nil, errors.New("a winner should have been picked but wasn't")
 }
 
+// AddBlock() : Will Add the Block by Winner Node
+func (n PoSNetwork) AddBlock(data string) {
+	winner, err := n.SelectWinner()
+	if err != nil {
+		log.Fatal(err)
+	}
+	winner.Stake += 10
+	n.Blockchain, n.BlockHead, err = n.GenerateNewBlock(winner, data)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println()
+	n.BlockHead.PrintBlockInfo()
+	fmt.Println()
+}
+
 func main() {
 	// set random seed
 	math.Seed(time.Now().UnixNano())
