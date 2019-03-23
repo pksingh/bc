@@ -205,6 +205,7 @@ func (n PoSNetwork) SelectWinner() (*Node, error) {
 
 // AddBlock() : Will Add the Block by Winner Node
 func (n PoSNetwork) AddBlock(data string) {
+	fmt.Println("Adding New Block=> Data:", data)
 	winner, err := n.SelectWinner()
 	if err != nil {
 		log.Fatal(err)
