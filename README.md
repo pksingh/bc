@@ -3,7 +3,7 @@
 This is going to have different Blockchain concepts.
 
 - PoW [X] Proof of Work
-- PoW [ ] Proof of Stake
+- PoW [X] Proof of Stake
 
 ## PoW /*Proof of Work*/
 
@@ -80,21 +80,31 @@ This is going to have different Blockchain concepts.
     *Output*:
     ```
     Init PoSNetwork DONE
-    InitValidators =>
-            Id:  1  Address: DC961BADD322AD87  Stake: 20
-            Id:  2  Address: 984419B79083B705  Stake: 30
-            Id:  3  Address: DF29C24AC533C357  Stake: 50
+    InitValidators => 
+            Id:  1  Address: AB1BCCBD99BC6E8F  Stake: 20
+            Id:  2  Address: ED4212D87FB2CE5A  Stake: 30
+            Id:  3  Address: A15E974200E5F4B8  Stake: 50
 
 
     Lets Carry out few Transactions ...
     Adding New Block=> Data: Ravin -- 5 --> Binod
-            Winner => Id:1 Stake:20
-            TS: 1552232595107374  Hash: d5012f7f30d58e4b8f5612856338c649  vId: 1  vAddr: DC961BADD322AD87 Data: Ravin -- 5 --> Binod
+            Winner => Id:3 Stake:50
+            TS: 1553408322151083  Hash: dd5d304cba74cf57810939c7f6144f97  vId: 3  vAddr: A15E974200E5F4B8 Data: Ravin -- 5 --> Binod
+
+    Adding New Block=> Data: Binod -- 3 --> Suresh
+            Winner => Id:2 Stake:30
+            TS: 1553408322152196  Hash: 5dc299c1235bfbc8e76f76db36a5112d  vId: 2  vAddr: ED4212D87FB2CE5A Data: Binod -- 3 --> Suresh
+
+    Adding New Block=> Data: Suresh -- 1 --> Ravin
+            Winner => Id:3 Stake:60
+            TS: 1553408322152769  Hash: b6f4d56346dcb552658be4c7ff50526a  vId: 3  vAddr: A15E974200E5F4B8 Data: Suresh -- 1 --> Ravin
 
 
     Lets Show/Print all Transactions in the Blockchain ...
-    Block GEN>      TS: 1552232595103746  Hash: 1097b936847c3c997486c7b8bf426bf0  vId: 0  vAddr:  Data:
-    Block 1 >       TS: 1552232595107374  Hash: d5012f7f30d58e4b8f5612856338c649  vId: 1  vAddr: DC961BADD322AD87 Data: Ravin -- 5 --> Binod
+    Block GEN>      TS: 1553408322149448  Hash: 406b2673c2f13abace944e04a386752d  vId: 0  vAddr:  Data:
+    Block 1 >       TS: 1553408322151083  Hash: dd5d304cba74cf57810939c7f6144f97  vId: 3  vAddr: A15E974200E5F4B8 Data: Ravin -- 5 --> Binod
+    Block 2 >       TS: 1553408322152196  Hash: 5dc299c1235bfbc8e76f76db36a5112d  vId: 2  vAddr: ED4212D87FB2CE5A Data: Binod -- 3 --> Suresh
+    Block 3 >       TS: 1553408322152769  Hash: b6f4d56346dcb552658be4c7ff50526a  vId: 3  vAddr: A15E974200E5F4B8 Data: Suresh -- 1 --> Ravin
     ```
 
 # License
